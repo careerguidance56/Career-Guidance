@@ -6,7 +6,7 @@
 <body>
     <h2>Manage Job</h2>
     <table border="1 px">
-    <a href="">add</a>
+    <a href="addjob.html">add</a>
         <tr>
             <th>S.no</th>
             <th>Company Name </th>
@@ -15,16 +15,18 @@
             <th>Qualification</th>
             <th>experience</th>
         </tr>
+        {% for i in val %}
         <tr>
             <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{i.Company_name}}</td>
+            <td>{{i.Job_name}}</td>
+            <td>{{i.Job_details}}</td>
+            <td>{{i.Qualification}}</td>
+            <td>{{i.Experience}}</td>
             <td> <a href="">edit</a>
-                <a href="">delete</a>
+            <a href="">delete</a>
             </td>
+         {% endfor %}
         </tr>
         
     </table>

@@ -55,7 +55,7 @@ class UserPage(View):
     
 class verifycompanyPage(View):
     def get(self,request):
-        obj = Manage_Job.objects.all()
+        obj = HRTable.objects.all()
         return render(request,"Administration/verifycompany.html",{'val': obj})
     
 class viewcoursePage(View):
@@ -77,13 +77,13 @@ class addjobPage(View):
     
 class hr_registerPage(View):
     def get(self,request):
-
-        return render(request,"HR/hr_register.html")
+     return render(request,"HR/hr_register.html")
+    
     
 class managejobPage(View):
     def get(self,request):
-
-        return render(request,"HR/managejob.html")
+         obj = Manage_Job.objects.all()
+         return render(request,"HR/managejob.html",{'val': obj})
     
 class homepage(View):
     def get(self,request):
@@ -92,13 +92,13 @@ class homepage(View):
     
 class applieduserPage(View):
     def get(self,request):
-
-        return render(request,"HR/viewapplieduser.html")
+        obj = Job_applied_users.objects.all()
+        return render(request,"HR/viewapplieduser.html",{'val': obj})
     
 class userPage(View):
     def get(self,request):
-
-        return render(request,"HR/viewuser.html")
+        obj = UserTable.objects.all()
+        return render(request,"HR/viewuser.html",{'val': obj})
     
     
     

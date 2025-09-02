@@ -35,6 +35,7 @@ class add_certificate(models.Model):
 class Manage_Job(models.Model):
    
     Login_id = models.ForeignKey(LoginTable,on_delete=models.CASCADE,blank=True, null=True)
+    Company_name = models.CharField(max_length=30, blank=True, null=True)
     Job_name = models.CharField(max_length=30, blank=True, null=True)
     Job_details = models.CharField(max_length=30, blank=True, null=True)
     Qualification = models.CharField(max_length=30, blank=True, null=True)
@@ -56,7 +57,7 @@ class Feedback(models.Model):
 
 class Job_applied_users(models.Model):
     
-    Login_id = models.ForeignKey(LoginTable,on_delete=models.CASCADE,blank=True, null=True)
+    Login_id = models.ForeignKey(UserTable,on_delete=models.CASCADE,blank=True, null=True)
     Job_role = models.CharField(max_length=30, blank=True, null=True)
     Resume = models.FileField(max_length=30, blank=True, null=True)
     Status = models.CharField(max_length=30, blank=True, null=True)

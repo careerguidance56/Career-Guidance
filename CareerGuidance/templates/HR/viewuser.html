@@ -11,25 +11,22 @@
             <th>Name</th>
             <th>Age</th>
             <th>Phone no</th>
+            <th>Gender</th>
             <th>Email id</th>
             <th>Qualification</th>
         </tr>
+        {% for i in val %}
         <tr>
             <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>{{ i.name }}</td>
+            <td>{{ i.age}}</td>
+            <td>{{ i.phone_no}}</td>
+            <td>{{ i.gender}}</td>
+            <td>{{i.email_id}}</td>
+            <td>{{i.Qualification}}</td>
         </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+         {% endfor %}
+
     </table>
 </body>
 </html>
