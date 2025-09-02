@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Add Certificate</title>
+</head>
+<body>
+    <h2> Add Certificate</h2>
+    <form action="/register" method="post"></form>
+    <label for="course name">Course Name:</label><br>
+    <input type="text" id="name" name=" name" required><br><br>
+
+    <label for="Certificate details">Certificate Details:</label><br>
+    <textarea name ="Certificate details" id="Certificate details" ></textarea><br><br>
+
+    <label for="category">Select Category:</label><br>
+    <select id="category" name="category">
+    <option value="a">A</option>
+    <option value="b">B</option>
+    <option value="c">C</option>
+    <option value="d">D</option>
+    </select><br><br>
+
+    <label for="start date">Start Date:</label><br>
+    <input type="date" id="start date" name="start date" required><br><br>
+
+   
+    <label for="end date">End Date:</label><br>
+    <input type="date" id="end date" name="end date" required><br><br>
+
+    <input type="submit" value="Add">
+  </form>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ViewFeedback</titl></title>
+</head>
+<body>
+    <h2>ViewFeedback</h2>
+    <table border="1 px">
+        <tr>
+            <th>S.no</th>
+            <th>user</th>
+            <th>complaint</th>
+            <th>reply</th>
+            
+            </tr>
+        {% for i in val %}
+        <tr>
+            <td>{{i.S.no}}</td>
+            <td>{{i.user}}</td>
+            <td>{{i.complaint}}</td>
+            <td><input type="text"> <input type="button" value="send"></td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+</body>
+</html>

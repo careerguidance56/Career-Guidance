@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View User</title>
+</head>
+<body>
+    <h2>View User</h2>
+    <table border="1 px">
+        <tr>
+            <th>S.no</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Phone_no</th>
+            <th>Gender</th>
+            <th>email_id</th>
+            <th>Qualification</th>
+        </tr>
+        {% for i in val %}
+        <tr>
+            <td></td>
+            <td>{{ i.name }}</td>
+            <td>{{ i.age}}</td>
+            <td>{{ i.phone_no}}</td>
+            <td>{{ i.Gender}}</td>
+            <td>{{i.email_id}}</td>
+            <td>{{i.Qualification}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
