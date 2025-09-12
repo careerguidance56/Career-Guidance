@@ -4,23 +4,25 @@
 </head>
 <body>
     <h2> HR Register</h2>
-    <form action="/register" method="post"></form>
+
+    <form  method="post" action="/hr_registerPage">
+         {%csrf_token %}
     <label for="company name">Company Name:</label><br>
-    <input type="text" id="company name" name="company name" required><br><br>
+    <input type="text" id="company name" name="Company_name" required><br><br>
 
     <label for="address">Address:</label><br>
-    <textarea name ="address" id="address" ></textarea><br>
+    <textarea name ="Address" id="address" ></textarea><br>
 
     <label for="phoneno">Phone no:</label><br>
-    <input type="number" id="number" name="number" required><br><br>
+    <input type="number" id="number" name="phone_no" required><br><br>
 
 
     <label for="email">email id:</label><br>
-    <input type="text" id="email" name="email" required><br><br>
+    <input type="text" id="email" name="email_id" required><br><br>
 
    
     <label for="password">Password:</label><br>
     <input type="password" id="password" name="password" required><br><br>
 
-    <input type="submit" value="Submit">
+    <button type="submit">Register</button>
   </form>

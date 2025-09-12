@@ -25,18 +25,21 @@ urlpatterns = [
     path('addcoursePage', addcoursePage.as_view(), name="addcoursePage"),
     path('certificatePage', certificatePage.as_view(), name="certificatePage"),
     path('addCertificatePage', addCertificatePage.as_view(), name="addCertificatePage"),
-    path('homepagePage',  homepagePage.as_view(), name="homepagePage"),
+    path('AdminhomepagePage',  AdminhomepagePage.as_view(), name="AdminhomepagePage"),
     path('UserPage',  UserPage.as_view(), name="UserPage"),
     path('verifycompanyPage',  verifycompanyPage.as_view(), name="verifycompanyPage"),
+    path('ApproveCompany/<int:login_id>/', ApproveCompany.as_view(), name='ApproveCompany'),
+    path('RejectCompany/<int:login_id>/', RejectCompany.as_view(), name='RejectCompany'),
     path('viewcoursePage',  viewcoursePage.as_view(), name="viewcoursePage"),
     path('viewfeedbackPage',  viewfeedbackPage.as_view(), name="viewfeedbackPage"),
+    path('Hrhomepage',Hrhomepage.as_view(),name='Hrhomepage'),
     
 #//////////////////////////////////////////HR///////////////////////////////////////////////
 
     path('addjobPage',  addjobPage.as_view(), name="addjobPage"),
     path('hr_registerPage',  hr_registerPage.as_view(), name="hr_registerPage"),
     path('managejobPagee',  managejobPage.as_view(), name="managejobPage"),
-    path('homepage',  homepage.as_view(), name="homepage"),
+    
     path('applieduserPage',  applieduserPage.as_view(), name="applieduserPage"),
     path('userPage',  userPage.as_view(), name="userPage"),
 

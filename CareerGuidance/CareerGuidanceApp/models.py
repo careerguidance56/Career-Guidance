@@ -32,14 +32,15 @@ class add_certificate(models.Model):
     file = models.FileField(max_length=30, blank=True, null=True)
    
 
-class Manage_Job(models.Model):
+class jobTable(models.Model):
    
     Login_id = models.ForeignKey(LoginTable,on_delete=models.CASCADE,blank=True, null=True)
-    Company_name = models.CharField(max_length=30, blank=True, null=True)
+    
     Job_name = models.CharField(max_length=30, blank=True, null=True)
     Job_details = models.CharField(max_length=30, blank=True, null=True)
     Qualification = models.CharField(max_length=30, blank=True, null=True)
     Experience = models.CharField(max_length=30, blank=True, null=True)
+    phone_no = models.BigIntegerField(blank=True, null=True)
 
 class Add_course(models.Model):
    

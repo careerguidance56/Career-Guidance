@@ -1,6 +1,8 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
 
+from CareerGuidanceApp.forms import HRForm, JobForm
 from CareerGuidanceApp.models import *
 # Create your views here.
 class LoginPage(View):
@@ -16,7 +18,7 @@ class LoginPage(View):
             if user.UserType=='admin':
                 return render(request,'Administration/homepage.html')
             elif user.UserType=='HR':
-                return render(request,'HR/homepage.html')
+                return render(request,'HR/HRhomepage.html')
                               
         except LoginTable.DoesNotExist:
             return render(request,'"---------',{'error':'Invalid username or password'})
@@ -43,10 +45,10 @@ class loginPage(View):
 
         return render(request,"Administration/login.html")
     
-class homepagePage(View):
+class AdminhomepagePage(View):
     def get(self,request):
 
-        return render(request,"Administration/homepage.html")
+        return render(request,"Administration/adminhomepage.html")
     
 class UserPage(View):
     def get(self,request):
@@ -57,6 +59,21 @@ class verifycompanyPage(View):
     def get(self,request):
         obj = HRTable.objects.all()
         return render(request,"Administration/verifycompany.html",{'val': obj})
+    
+class ApproveCompany(View):
+    def post(self, request, login_id):
+        obj=LoginTable.objects.get(id=login_id)
+        obj.UserType = "hr"
+        obj.save()
+        return HttpResponse('''<script>alert("Successfully Approved!");window.location="/adminhome";</script>''')
+
+
+class RejectCompany(View):
+    def post(self, request, login_id):
+        obj=LoginTable.objects.get(id=login_id)
+        obj.UserType = "rejected"
+        obj.save()
+        return HttpResponse('''<script>alert("Successfully Rejected!");window.location="/adminhome";</script>''')
     
 class viewcoursePage(View):
     def get(self,request):
@@ -72,23 +89,39 @@ class viewfeedbackPage(View):
 
 class addjobPage(View):
     def get(self,request):
+     return render(request,"HR/addjob.html")
+    def post(self, request):
+        form = JobForm(request.POST)
+        print("=================================================", form)
+        if form.is_valid():
+            f = form.save(commit=False)
+            f.save()
+            return HttpResponse( '''<script>alert('Job added successfully!');window.location='/addjobPage'</script>''')
 
-        return render(request,"HR/addjob.html")
     
 class hr_registerPage(View):
     def get(self,request):
      return render(request,"HR/hr_register.html")
+    def post(self, request):
+        form=HRForm(request.POST)
+        print("=================================================",form)
+        if form.is_valid():
+            f=form.save(commit=False)
+            f.Login_id=LoginTable.objects.create(Username=f.email_id,Password=request.POST['password'],UserType='pending')
+            f.save()
+            return HttpResponse(''''<script>alert(' Successfully Registered!');window.location='/LoginPage'</script>''')
+       
+      
     
     
 class managejobPage(View):
+    def get(self, request):
+        obj = Manage_Job.objects.all()
+        return render(request, "HR/managejob.html", {'val': obj})
+      
+class Hrhomepage(View):
     def get(self,request):
-         obj = Manage_Job.objects.all()
-         return render(request,"HR/managejob.html",{'val': obj})
-    
-class homepage(View):
-    def get(self,request):
-
-        return render(request,"HR/page.html")
+     return render(request,"HR/HRhomepage.html")
     
 class applieduserPage(View):
     def get(self,request):
